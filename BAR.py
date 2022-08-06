@@ -21,7 +21,7 @@ with col_2:
 
 api_key = st.secrets['DATA_API_KEY']
 timezone = "Africa/Lagos"
-no_candles = 1000
+no_candles = 200
 
 series_url = f'https://api.twelvedata.com/time_series?symbol={pair}' \
              f'&interval={interval}&apikey={api_key}&outputsize={no_candles}' \
