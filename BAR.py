@@ -5,7 +5,6 @@ import requests
 
 st.set_page_config(page_title='BAR.', layout="wide")
 
-st.title('Welcome to the BAR.')
 st.sidebar.title('side Panel')
 
 PAIRS = ['EUR/USD', 'GBP/JPY', 'EUR/AUD']
@@ -60,6 +59,8 @@ def plot_chart(upper, lower):
 
 
 df = get_data()
+last_price = df.close.iloc[-1]
+st.title(f'{pair} at {last_price}')
 
 _upper = df['open'].mean()
 _lower = _upper - (df['open'].std() / 7)
@@ -68,7 +69,7 @@ expander = st.sidebar.expander("Subscribe to a price alert")
 with expander:
     upper = st.number_input('Upper', value=_upper)
     lower = st.number_input('Lower', value=_lower)
-    email = st.text_input('Subscriber Email')
+    email = st.text_input('Subscriber Gmail (gmail only)')
 
 fig = plot_chart(upper, lower)
 st.plotly_chart(fig, use_container_width=True)
