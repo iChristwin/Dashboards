@@ -20,7 +20,7 @@ with col_2:
     interval = st.selectbox('Select Interval', INTERVAL, index=default_interval)
 
 
-api_key = st.secrets['API_KEY']
+api_key = st.secrets['DATA_API_KEY']
 timezone = "Africa/Lagos"
 no_candles = 1000
 
