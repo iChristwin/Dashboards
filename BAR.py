@@ -5,7 +5,7 @@ import requests
 
 st.set_page_config(page_title='BAR.', layout="wide")
 
-st.sidebar.title('side Panel')
+st.sidebar.title('Side Panel')
 
 PAIRS = ['EUR/USD', 'GBP/JPY', 'EUR/AUD']
 INTERVAL = ['1min', '5min', '15min', '30min', '45min', '1h', '2h', '4h', '1day', '1week', '1month']
@@ -59,7 +59,7 @@ def plot_chart(upper, lower):
 
 
 df = get_data()
-last_price = df.close.iloc[-1]
+last_price = df.close.iloc[0]
 st.title(f'{pair} at {last_price}')
 
 _upper = df['open'].mean()
